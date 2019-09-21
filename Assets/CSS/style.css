@@ -10,24 +10,34 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-shadow: 2px 2px black
 }
-p {
-    background: white;
-}
+
 #navbar {
     width: 100%;
-    background-color: gray;
     position: fixed;
+    padding: 0 10px;
+    text-align: center;
 }
+#links {
+
+}
+
 #contact {
     column-count: 3;
     column-width: 300px;
-    margin: 100px auto;
+    margin: 120px auto;
     width: 80%;
     
 }
-#info {
-    
+.info {
+    /* background: white; */
+}
+
+ul li {
+    margin: 10px;
 }
 #me {
     height: 100%;
