@@ -1,0 +1,36 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+body {
+    min-height: 100vh;
+    position:absolute; top:0; bottom:0; right:0; left:0;
+    margin: 0;
+    background-image: url(../Images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+p {
+    background: white;
+}
+#navbar {
+    width: 100%;
+    background-color: gray;
+    position: fixed;
+}
+#contact {
+    column-count: 3;
+    column-width: 300px;
+    margin: 100px auto;
+    width: 80%;
+    
+}
+#info {
+    
+}
+#me {
+    height: 100%;
+    width: 100%;
+    column-fill: balance;
+}
