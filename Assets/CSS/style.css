@@ -10,9 +10,10 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: white;
-    text-shadow: 2px 2px black
+    text-shadow: 2px 2px black;
+    letter-spacing: .7px;
 }
 
 #navbar {
@@ -22,20 +23,55 @@ body {
     text-align: center;
 }
 #links {
+    display: flex;
+    width: fit-content;
+    margin: auto;
+}
+button {
+    background: rgba(0, 0, 0, 0);
+    color: white;
+    font-size: 14px;
+    text-shadow: 1px 1px black;
+    letter-spacing: 1px;
+    padding: 10px 15px;
+    border: none;
+}
+button:focus {
+    outline:0;
+}
+button:hover {
+    background: rgb(50, 50, 50);
+}
+button:active {
+    background-color: white;
+    padding: 6px 11px;
+    border: 4px solid rgb(50, 50, 50);
+    color: black;
+    text-shadow: 1px 1px lightgrey;
 
+}
+.svg {
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    margin-right: 6px;
+    margin-top: auto;
+    vertical-align: middle
 }
 
 #contact {
     column-count: 3;
     column-width: 300px;
-    margin: 120px auto;
+    margin: 150px auto;
     width: 80%;
     
 }
-.info {
-    /* background: white; */
+#skills {
+    
 }
-
+#sum {
+    text-align: right;
+}
 ul li {
     margin: 10px;
 }
