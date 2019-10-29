@@ -86,7 +86,9 @@
             </div>
         </div>
     </div>
-    <embed id="resume" src= "Assets/Images/Bizra-Resume.pdf" width= "500px" height= "375px">
+    <center>
+        <embed id="resume" src= "Assets/Images/Bizra-Resume.pdf" width= "60%" height= "1000px">
+    </center>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -102,27 +104,44 @@
         var repoBtn = document.createElement("button");
         var repoBtnTextNode = document.createTextNode("Repository");
         repoBtn.setAttribute("class", "repo");
-        repoBtn.setAttribute("type", "button");
         repoBtn.appendChild(repoBtnTextNode);
         console.log(repoBtn);
+
         // Form for repoBtn
         var repoForm = document.createElement("form");
-        repoForm.setAttribute("method", "get");
-        repoForm.setAttribute("target", "_blank");
         repoForm.appendChild(repoBtn);
         console.log(repoForm);
+
+        // Universal button to link to deployed link
+        var depBtn = document.createElement("button");
+        var depBtnTextNode = document.createTextNode("Deployed Link");
+        depBtn.setAttribute("class", "dep");
+        depBtn.appendChild(depBtnTextNode);
+
+        // Form for deployed link
+        var depForm = document.createElement("form");
+        depForm.appendChild(depBtn);
+
+        function compForm(elem) {
+            elem.setAttribute("method", "get");
+            elem.setAttribute("target", "_blank");
+        };
+        function resetForm (elem) {
+            while(elem.attributes.length > 0)
+            elem.removeAttribute(elem.attributes[0].name);
+        }
     //---------------------------------------------------------------
 
         // Individual card and thumbnail for Presidential Race
         var presRaceText = document.createElement("p");
-        var presRaceTextNode = document.createTextNode("Presidential Race is a small video game created in Unity, programmed using C#, implemented and launched inside a ReactJS web application. My role in this group project was to make the contents of the game. \n https://alpha1game.herokuapp.com");
+        var presRaceTextNode = document.createTextNode("Presidential Race is a small video game created in Unity, programmed using C#, implemented and launched inside a ReactJS web application. My role in this group project was to make the contents of the game.");
         presRaceText.setAttribute("id", "description");
         presRaceText.appendChild(presRaceTextNode);
         console.log(presRaceText);
 
         // For UI Folly
         var uiText = document.createElement("p");
-        var uiTextNode = document.createTextNode("UI Folly is a mini game created with react js in which the player must click from a grid of cards on the screen. Every time he/she clicks on a card, the cards will shuffle. The player must be careful not to click the same card twice, or else they will lose. Click each 16 cards once to win. \n https://josephbizra.github.io/UI-Folly/");
+        var uiTextNode = document.createTextNode("UI Folly is a mini game created with react js in which the player must click from a grid of cards on the screen. Every time he/she clicks on a card, the cards will shuffle. The player must be careful not to click the same card twice, or else they will lose. Click each 16 cards once to win.");
         uiText.setAttribute("id", "description");
         uiText.appendChild(uiTextNode);
 
@@ -190,11 +209,13 @@
         // Info-appendig function for Presidential Race
         function presRaceFunct(elem) {
             if (clicked === true) {
-                
                 info.appendChild(presRaceText);
                 repoForm.setAttribute("action", "https://github.com/dwilliams5807/Project-3");
+                compForm(repoForm);
+                depForm.setAttribute("action", "https://alpha1game.herokuapp.com");
+                compForm(depForm);
                 info.appendChild(repoForm);
-                console.log(repoForm)
+                info.appendChild(depForm);
             };
         };
 
@@ -202,6 +223,12 @@
         function uiFunct(elem) {
             if(clicked === true) {
                 info.appendChild(uiText);
+                repoForm.setAttribute("action", "https://github.com/JosephBizra/UI-Folly");
+                compForm(repoForm);
+                depForm.setAttribute("action", "https://josephbizra.github.io/UI-Folly/");
+                compForm(depForm);
+                info.appendChild(repoForm);
+                info.appendChild(depForm);
             };
         };
 
@@ -209,6 +236,12 @@
         function hangmanFunct(elem) {
             if (clicked === true) {
                 info.appendChild(hangmanText);
+                repoForm.setAttribute("action", "https://github.com/JosephBizra/Word-Guess-Game");
+                compForm(repoForm);
+                depForm.setAttribute("action", "https://josephbizra.github.io/Word-Guess-Game/");
+                compForm(depForm);
+                info.appendChild(repoForm);
+                info.appendChild(depForm);
             };
         };
 
@@ -216,13 +249,23 @@
         function liriFunct(elem) {
             if (clicked === true) {
                 info.appendChild(liriText);
-            }
+                info.appendChild(hangmanText);
+                repoForm.setAttribute("action", "https://github.com/JosephBizra/liri-node-app");
+                compForm(repoForm);
+                info.appendChild(repoForm);
+            };
         };
 
         // For Train Scheduler
         function trainFunct(elem) {
             if (clicked === true) {
                 info.appendChild(trainText);
+                repoForm.setAttribute("action", "https://github.com/JosephBizra/Train-Scheduler");
+                compForm(repoForm);
+                depForm.setAttribute("action", "https://josephbizra.github.io/Train-Scheduler/");
+                compForm(depForm);
+                info.appendChild(repoForm);
+                info.appendChild(depForm);
             };
         };
     //---------------------------------------------------------------
@@ -253,6 +296,8 @@
                 var description = document.getElementById("description");
                 console.log(description);
                 info.removeChild(description);
+                resetForm(repoForm);
+                resetForm(depForm);
                 info.remove();
                 console.log("out");
             };

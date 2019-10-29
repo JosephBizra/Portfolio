@@ -99,9 +99,6 @@ ul li {
     margin: 5px auto 20px;
     position: relative;
 }
-.project:hover {
-    cursor: pointer;
-}
 .frame {
     position: relative;
 }
