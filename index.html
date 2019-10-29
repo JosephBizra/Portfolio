@@ -2,8 +2,10 @@
 <html>
 
 <head>
+    <link rel="icon" type="image/png" href="Assets/Images/favicon-32x32.png" sizes="32x32" />
     <link rel="stylesheet" href="Assets/CSS/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -15,7 +17,7 @@
                     <div class="svg" style="background: url(Assets/Images/logos/gmail.svg);"></div>j.bizra@gmail.com
                 </button>
             </form>
-            <form action="https://www.linkedin.com/in/joseph-bizra-421429186/" method="get" target="_blank">
+            <form action="https://www.linkedin.com/in/jbizra/" method="get" target="_blank">
                 <button type="submit">
                     <div class="svg" style="background: url(Assets/Images/logos/linkedin.svg);"></div>LinkedIn
                 </button>
@@ -31,7 +33,9 @@
         <div id="sum">Full stack web developer with an interest of making things of his own. I have a
             passion
             for
-            computers, code, game development, and collaborating with teams to turn ambitious ideas into reality.
+            computers, code, game development, and collaborating with teams to turn ambitious ideas into reality. I
+            acquired an interest for computers in highschool and have been fiddling with code since. I joined a web
+            development bootcamp right after highschool to kickstart my career in coding.
         </div>
         <img id="me" src="Assets/Images/me.jpg" alt="Me">
         <ul id="skills">
@@ -45,36 +49,44 @@
     <div id="content">
         <h1>Projects</h1>
         <div id="projects">
-            <div class="project" id="race" onmouseover="hover(this), presRaceFunct(this)" onmouseout="out(this)">
+            <div class="project" id="race">
+                <button class="open" onclick="on(this), presRaceFunct()">Open</button>
                 <div class="frame">
-                    <img class="thumbnail" id="race-img" src="Assets/Images/Screenshots/pres_race.jpg" alt="not working">
+                    <img class="thumbnail" id="race-img" src="Assets/Images/Screenshots/pres_race.jpg" alt="not working" >
                     <div class="title">Presidential Race</div>
                 </div>
             </div>
-            <div class="project" id="train" onmouseover="hover(this), trainFunct()" onmouseout="out(this)">
+            <div class="project" id="ui">
+                <button class="open" onclick="on(this), uiFunct()">Open</button>
                 <div class="frame">
-                    <img class="thumbnail" id="train-img" src="Assets/Images/Screenshots/train.JPG" alt="not working">
-                    <div class="title">Train Scheduler</div>
+                    <img class="thumbnail" id="ui-img" src="Assets/Images/Screenshots/ui.JPG" alt="not working">
+                    <div class="title">UI Folly</div>
                 </div>
             </div>
-            <div class="project" id="hangman" onmouseover="hover(this), hangmanFunct()" onmouseout="out(this)">
+            <div class="project" id="hangman">
+                <button class="open" onclick="on(this), hangmanFunct()">Open</button>
                 <div class="frame">
                     <img class="thumbnail" id="hangman-img" src="Assets/Images/Screenshots/hangman.JPG" alt="not working">
                     <div class="title">Great Depression Hangman</div>
                 </div>
             </div>
-            <div class="project" id="liri" onmouseover="hover(this), liriFunct()" onmouseout="out(this)">
+            <div class="project" id="liri">
+                <button class="open" onclick="on(this), liriFunct()">Open</button>
                 <div class="frame">
-                    <img class="thumbnail" id="liri-img" src="Assets/Images/background.jpg" alt="not working">
+                    <img class="thumbnail" id="liri-img" src="Assets/Images/Screenshots/liri.jpg" alt="not working">
                     <div class="title">Liri Node App</div>
                 </div>
             </div>
-            <div class="project">
-                <img class="thumbnail" src="Assets/Images/background.jpg" alt="not working">
-                <div class="title">Lorem ipsum dolor sit amet.</div>
+            <div class="project" id="train">
+                <button class="open" onclick="on(this), trainFunct()">Open</button>
+                <div class="frame">
+                    <img class="thumbnail" id="train-img" src="Assets/Images/Screenshots/train.JPG" alt="not working">
+                    <div class="title">Train Scheduler</div>
+                </div>
             </div>
         </div>
     </div>
+    <embed id="resume" src= "Assets/Images/Bizra-Resume.pdf" width= "500px" height= "375px">
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -85,104 +97,165 @@
     <script>
         // Universal project div
         var project = document.getElementsByClassName("project");
-        // Individual card and thumbnail for Presidential Race
-        var presRace = document.getElementById("race");
-        var presRaceImg = document.getElementById("race-img");
-        var presRaceText = document.createElement("p");
-        var presRaceTextNode = document.createTextNode("Presidential Race is a small video game created in Unity, programmed using C#, implemented and launched inside a ReactJS web apllication. My role in this group project was to make the contents of the game.");
-            presRaceText.setAttribute("id", "description");
-            presRaceText.appendChild(presRaceTextNode);
 
-        // For Train Scheduler
-        var train = document.getElementById("train");
-        var trainImg = document.getElementById("train-img");
-        var trainText = document.createElement("p");
-        var trainTextNode = document.createTextNode("This is a program that stores inputted information about a train into a database to be permanently appended to a table of train scedules. It displays the user's information about the train's name, destination, initial arrival, and frequency. There is even a program to display upcoming arrival times and the minutes left before them.");
-            trainText.setAttribute("id", "description");
-            trainText.appendChild(trainTextNode);
+        // Universal button to link to github repository
+        var repoBtn = document.createElement("button");
+        var repoBtnTextNode = document.createTextNode("Repository");
+        repoBtn.setAttribute("class", "repo");
+        repoBtn.setAttribute("type", "button");
+        repoBtn.appendChild(repoBtnTextNode);
+        console.log(repoBtn);
+        // Form for repoBtn
+        var repoForm = document.createElement("form");
+        repoForm.setAttribute("method", "get");
+        repoForm.setAttribute("target", "_blank");
+        repoForm.appendChild(repoBtn);
+        console.log(repoForm);
+    //---------------------------------------------------------------
+
+        // Individual card and thumbnail for Presidential Race
+        var presRaceText = document.createElement("p");
+        var presRaceTextNode = document.createTextNode("Presidential Race is a small video game created in Unity, programmed using C#, implemented and launched inside a ReactJS web application. My role in this group project was to make the contents of the game. \n https://alpha1game.herokuapp.com");
+        presRaceText.setAttribute("id", "description");
+        presRaceText.appendChild(presRaceTextNode);
+        console.log(presRaceText);
+
+        // For UI Folly
+        var uiText = document.createElement("p");
+        var uiTextNode = document.createTextNode("UI Folly is a mini game created with react js in which the player must click from a grid of cards on the screen. Every time he/she clicks on a card, the cards will shuffle. The player must be careful not to click the same card twice, or else they will lose. Click each 16 cards once to win. \n https://josephbizra.github.io/UI-Folly/");
+        uiText.setAttribute("id", "description");
+        uiText.appendChild(uiTextNode);
 
         // For Hangman
-        var hangman = document.getElementById("hangman");
-        var hangmanImg = document.getElementById("hangman-img");
         var hangmanText = document.createElement("p");
         var hangmanTextNode = document.createTextNode("This is a game of hangman with a Great Depression theme and styled to resemble a 20th century newspaper.");
-            hangmanText.setAttribute("id", "description");
-            hangmanText.appendChild(hangmanTextNode);
+        hangmanText.setAttribute("id", "description");
+        hangmanText.appendChild(hangmanTextNode);
 
         // For Liri Node App
-        var liri = document.getElementById("liri");
-        var liriImg = document.getElementById("liri-img");
         var liriText = document.createElement("p");
         var liriTextNode = document.createTextNode("This is a back-end app that utilizes a Spotify API to fetch information about any song, album, aritist, or they're consert schedules.");
-            liriText.setAttribute("id", "description");
-            liriText.appendChild(liriTextNode);
+        liriText.setAttribute("id", "description");
+        liriText.appendChild(liriTextNode);
+
+        // For Train Scheduler
+        var trainText = document.createElement("p");
+        var trainTextNode = document.createTextNode("This is a program that stores inputted information about a train into a database to be permanently appended to a table of train scedules. It displays the user's information about the train's name, destination, initial arrival, and frequency. There is even a program to display upcoming arrival times and the minutes left before them. \n ");
+        trainText.setAttribute("id", "description");
+        trainText.appendChild(trainTextNode);
+
 
         // Technology subtitle
         var techDiv = document.createElement("div");
         var techDivText = document.createTextNode("Technologies Used:")
-            techDiv.setAttribute("class", "tech-div");
-            techDiv.appendChild(techDivText);
+        techDiv.setAttribute("class", "tech-div");
+        techDiv.appendChild(techDivText);
+        console.log(techDiv);
+    //---------------------------------------------------------------
 
         // HTML5 svg
         var html5 = document.createElement("div");
-            html5.setAttribute("class", "svg");
-            html5.style.background = "url(Assets/Images/logos/html5.svg)";
+        html5.setAttribute("class", "svg");
+        html5.style.background = "url(Assets/Images/logos/html5.svg)";
 
         // CSS3 svg
         var css3 = document.createElement("div");
-            css3.setAttribute("class", "svg");
-            css3.style.background = "url(Assets/Images/logos/css3.svg)";
+        css3.setAttribute("class", "svg");
+        css3.style.background = "url(Assets/Images/logos/css3.svg)";
 
         // JavaScript svg
         var javascript = document.createElement("div");
-            javascript.setAttribute("class", "svg");
-            javascript.style.background = "url(Assets/Images/logos/javascript.svg)";
+        javascript.setAttribute("class", "svg");
+        javascript.style.background = "url(Assets/Images/logos/javascript.svg)";
+    //---------------------------------------------------------------
 
         // Appends the 3 essential technologies
         var logos = document.createElement("div");
-            logos.setAttribute("class", "logos");
-            logos.appendChild(html5);
-            logos.appendChild(css3);
-            logos.appendChild(javascript);
+        logos.setAttribute("class", "logos");
+        logos.appendChild(html5);
+        logos.appendChild(css3);
+        logos.appendChild(javascript);
+        console.log(logos);
 
         // Packages the logos and tech subtitle into one div
         var info = document.createElement("div");
-            info.setAttribute("class", "info");
-            info.appendChild(techDiv);
-            info.appendChild(logos);
-        
-        // Adds the basic info
-        function hover(elem) {
-            elem.style.padding = "5px";
-            elem.appendChild(info);
-        };
+        info.setAttribute("class", "info");
+        info.appendChild(techDiv);
+        info.appendChild(logos);
+        console.log(info);
+    //---------------------------------------------------------------
 
-        // Removes the info after resetting the description
-        function out(elem) {
-            elem.style.padding = "0";
-            var description = document.getElementById("description");
-            info.removeChild(description);
-            info.remove();
-        };
+        var clicked = false;
 
         // Info-appendig function for Presidential Race
         function presRaceFunct(elem) {
-            info.appendChild(presRaceText);
+            if (clicked === true) {
+                
+                info.appendChild(presRaceText);
+                repoForm.setAttribute("action", "https://github.com/dwilliams5807/Project-3");
+                info.appendChild(repoForm);
+                console.log(repoForm)
+            };
         };
 
-        // For Train Scheduler
-        function trainFunct(elem) {
-            info.appendChild(trainText);
+        // For UI Folly
+        function uiFunct(elem) {
+            if(clicked === true) {
+                info.appendChild(uiText);
+            };
         };
 
         // For Hangman
         function hangmanFunct(elem) {
-            info.appendChild(hangmanText);
+            if (clicked === true) {
+                info.appendChild(hangmanText);
+            };
         };
 
         // For Liri Node App
         function liriFunct(elem) {
-            info.appendChild(liriText);
+            if (clicked === true) {
+                info.appendChild(liriText);
+            }
+        };
+
+        // For Train Scheduler
+        function trainFunct(elem) {
+            if (clicked === true) {
+                info.appendChild(trainText);
+            };
+        };
+    //---------------------------------------------------------------
+
+        var xBtn = document.createElement("button");
+        var xBtnTextNode = document.createTextNode("X");
+        xBtn.setAttribute("class", "x");
+        xBtn.setAttribute("type", "button");
+        // xBtn.setAttribute("onclick", off());
+        xBtn.appendChild(xBtnTextNode);
+        console.log(xBtn);
+        
+        function on(elem) {
+            if (clicked === false) {
+                clicked = true;
+                elem.parentNode.style.padding = "5px";
+                elem.parentNode.appendChild(xBtn);
+                elem.parentNode.appendChild(info);
+                console.log("in");
+            };
+        };
+
+        xBtn.onclick = function off() {
+            if (clicked === true) {
+                clicked = false;
+                xBtn.parentNode.style.padding = "0px";
+                xBtn.remove();
+                var description = document.getElementById("description");
+                console.log(description);
+                info.removeChild(description);
+                info.remove();
+                console.log("out");
+            };
         };
     </script>
 </body>
