@@ -87,7 +87,7 @@
         </div>
     </div>
     <center>
-        <embed id="resume" src= "Assets/Images/Bizra-Resume.pdf" width= "60%" height= "1000px">
+        <embed id="resume" src= "Assets/Images/Joseph-Bizra_Resume.pdf" width= "60%" height= "1000px">
     </center>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -186,6 +186,31 @@
         var javascript = document.createElement("div");
         javascript.setAttribute("class", "svg");
         javascript.style.background = "url(Assets/Images/logos/javascript.svg)";
+
+        // Node.js svg
+        var nodejs = document.createElement("div");
+        nodejs.setAttribute("class", "svg");
+        nodejs.style.background = "url(Assets/Images/logos/node.js.svg)";
+
+        // Mysql svg
+        var mysql = document.createElement("div");
+        mysql.setAttribute("class", "svg");
+        mysql.style.background = "url(Assets/Images/logos/mysql.svg)";
+
+        // ReactJS svg
+        var reactjs = document.createElement("div");
+        reactjs.setAttribute("class", "svg");
+        reactjs.style.background = "url(Assets/Images/logos/reactjs.svg)";
+
+        // Unity svg
+        var unity = document.createElement("div");
+        unity.setAttribute("class", "svg");
+        unity.style.background = "url(Assets/Images/logos/unity.svg)";
+
+        // C# svg
+        var cSharp = document.createElement("div");
+        cSharp.setAttribute("class", "svg");
+        cSharp.style.background = "url(Assets/Images/logos/c#.svg)";
     //---------------------------------------------------------------
 
         // Appends the 3 essential technologies
@@ -202,6 +227,8 @@
         info.appendChild(techDiv);
         info.appendChild(logos);
         console.log(info);
+        
+
     //---------------------------------------------------------------
 
         var clicked = false;
@@ -210,6 +237,7 @@
         function presRaceFunct(elem) {
             if (clicked === true) {
                 info.appendChild(presRaceText);
+                logos.appendChild(unity);
                 repoForm.setAttribute("action", "https://github.com/dwilliams5807/Project-3");
                 compForm(repoForm);
                 depForm.setAttribute("action", "https://alpha1game.herokuapp.com");
